@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Countdown - India</title>
+  <style>
+    body {
+      font-family: 'Impact', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #2c3e50; 
+      color: #fff;
+      text-align: center;
+    }
+
+    .countdown {
+      margin-top: 20px;
+    }
+
+    .timer-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timer {
+      font-size: 3em;
+      margin: 10px;
+    }
+
+    .label {
+      font-size: 1.5em;
+      margin: 10px; 
+      text-transform: uppercase;
+    }
+
+    .days {
+      color: #ffcc29; 
+    }
+
+    .hours {
+      color: #ff6666; 
+    }
+
+    .minutes {
+      color: #66ccff; 
+    }
+
+    .seconds {
+      color: #66ff66; 
+    }
+  </style>
+</head>
+<body>
+  <div class="countdown">
+    <h1>Countdown to New Year - India</h1>
+    <div class="timer-container">
+      <div class="timer days" id="days">00</div>
+      <div class="label">Days</div>
+    </div>
+    <div class="timer-container">
+      <div class="timer hours" id="hours">00</div>
+      <div class="label">Hours</div>
+    </div>
+    <div class="timer-container">
+      <div class="timer minutes" id="minutes">00</div>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="timer-container">
+      <div class="timer seconds" id="seconds">00</div>
+      <div class="label">Seconds</div>
+    </div>
+  </div>
+
+  <script>
+   
+    const countDownDate = new Date("January 1, 2025 00:00:00 GMT+0530").getTime();
+
+    
+    const x = setInterval(function() {
+      
+      const now = new Date().getTime();
+
+     
+      const distance = countDownDate - now;
+
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+     
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      
+      if (distance < 0) {
+        clearInterval(x);
+       
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
